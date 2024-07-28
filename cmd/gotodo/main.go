@@ -8,6 +8,8 @@ import (
 func main() {
 	e := echo.New()
 
+	e.Static("/assets", "assets")
+
 	e.GET("/", func(c echo.Context) error {
 		component := views.Index()
 		return component.Render(c.Request().Context(), c.Response().Writer)
