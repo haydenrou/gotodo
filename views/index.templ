@@ -13,5 +13,8 @@ templ Index() {
 templ TodoItem(todo string) {
 	<li>
 		<span>{ todo }</span>
+		<form hx-confirm="Are you sure?" hx-delete="/todos" hx-target="closest li" hx-swap="outerHTML">
+			<button type="submit">Delete</button>
+		</form>
 	</li>
 }

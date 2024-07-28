@@ -20,5 +20,9 @@ func main() {
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	})
 
+	e.DELETE("/todos", func(c echo.Context) error {
+		return c.String(200, "")
+	})
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
