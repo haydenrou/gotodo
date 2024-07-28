@@ -15,5 +15,10 @@ func main() {
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	})
 
+	e.POST("/todos", func(c echo.Context) error {
+		component := views.TodoItem(c.FormValue("todo"))
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	})
+
 	e.Logger.Fatal(e.Start(":1323"))
 }

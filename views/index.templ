@@ -1,15 +1,17 @@
 package views
 
 templ Index() {
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Hello world</title>
-			<script src="/assets/htmx.min.js"></script>
-		</head>
-		<body>
-			<h1>Hello world</h1>
-			<p>Hello again, world</p>
-		</body>
-	</html>
+	@base() {
+		<ul id="list"></ul>
+		<form hx-post="/todos" hx-target="#list" hx-swap="beforeend">
+			<input type="text" name="todo" placeholder="Enter your todo"/>
+			<button type="submit">Add</button>
+		</form>
+	}
+}
+
+templ TodoItem(todo string) {
+	<li>
+		<span>{ todo }</span>
+	</li>
 }
